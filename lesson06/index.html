@@ -200,7 +200,7 @@
 
 
     var currentlyPressedKeys = {};
-
+	
     function handleKeyDown(event) {
 	if(event.keyCode === 83) xSpeed = ySpeed = 0 ; 
     else currentlyPressedKeys[event.keyCode] = true;
@@ -210,10 +210,18 @@
             if (filter == 3) {
                 filter = 0;
             }
+			// Update filterInfo if necessary
+			if(document.getElementById("current_filter") != null) updateInfoFilter(filter) ;
         }
     }
 
-
+	function updateInfoFilter(filter)
+	{
+		if(filter == 0) document.getElementById("current_filter").innerHTML = "MAG : NEAREST, MIN : NEAREST" ;
+		else if(filter == 1) document.getElementById("current_filter").innerHTML = "MAG : LINEAR, MIN : LINEAR" ;
+			 else if (filter == 2) document.getElementById("current_filter").innerHTML = "MAG : LINEAR, MIN : LINEAR_MIPMAP_NEAREST" ;
+	}
+	
     function handleKeyUp(event) {
         currentlyPressedKeys[event.keyCode] = false;
     }
@@ -433,6 +441,7 @@
 
     <canvas id="lesson06-canvas" style="border: none;" width="500" height="500"></canvas>
 
+	<p>Current texture filter : <output id="current_filter">MAG : NEAREST, MIN : NEAREST</code></p>
     <h2>Controls:</h2>
 
     <ul>
