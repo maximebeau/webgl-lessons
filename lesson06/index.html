@@ -236,9 +236,6 @@
         lastMouseY = newY;
     }
 
-	function handleMouseWheel(event) {
-        z += 0.01 ;
-    }
     var currentlyPressedKeys = {};
 	
     function handleKeyDown(event) {
@@ -450,8 +447,6 @@
         document.onkeyup = handleKeyUp;
 
 		canvas.onmousedown = handleMouseDown;
-		if((/Firefox/i.test(navigator.userAgent))) window.onwheel = handleMouseWheel ;
-		else window.onwheel = handleMouseWheel;
 		document.onmouseup = handleMouseUp;
 		document.onmousemove = handleMouseMove;
 		
