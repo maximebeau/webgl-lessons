@@ -239,8 +239,7 @@
     var currentlyPressedKeys = {};
 	
     function handleKeyDown(event) {
-	if(event.keyCode === 83) xSpeed = ySpeed = 0 ; 
-    else currentlyPressedKeys[event.keyCode] = true;
+		currentlyPressedKeys[event.keyCode] = true;
 
         if (String.fromCharCode(event.keyCode) == "F") {
             filter += 1;
